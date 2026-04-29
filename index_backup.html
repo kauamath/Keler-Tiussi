@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keler Tiussi | Designer de Interiores</title>
+    <meta name="description" content="Projetos de interiores online personalizados para quem busca sofisticação e funcionalidade sem sair de casa.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Design System Variables - Editorial Organicism */
+        :root {
+            /* Clareando o verde primário a pedido do usuário */
+            --primary: #4e5933; 
+            --primary-container: #677545;
+            --surface: #f9f9f7;
+            --surface-container-low: #f4f4f2;
+            --surface-container-highest: #e2e3e1;
+            /* Clareando levemente o texto padrão */
+            --on-surface: #3a3b37;
+            --on-primary: #ffffff;
+            --outline-variant: #c7c7bb;
+            --primary-fixed: #dee7bf;
+
+            /* Tipografia de alto contraste */
+            --font-display: 'Noto Serif', serif;
+            --font-body: 'Manrope', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--surface);
+            color: var(--on-surface);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, .serif {
+            font-family: var(--font-display);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.5rem; }
+        h2 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 2rem; }
+        h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); margin-bottom: 1rem; }
+        
+        .label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        p {
+            font-size: clamp(1rem, 1.2vw, 1.125rem);
+            margin-bottom: 1.5rem;
+            max-width: 60ch;
+        }
+
+        /* Utilities */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 120px 0; /* Espaço em branco acentuado da regra de design */
+        }
+
+        .text-center { text-align: center; }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 0.25rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+            color: var(--on-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 20px 40px rgba(26, 28, 27, 0.15); 
+        }
+
+        .btn-secondary {
+            background: rgba(78, 89, 51, 0.03); /* Fundo extremamente sutil na cor primária */
+            color: var(--primary);
+            font-weight: 600; /* Texto mais forte */
+            border: 2px solid var(--primary); /* Borda sólida e visível */
+            letter-spacing: 0.5px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--on-primary);
+            transform: translateY(-2px);
+            box-shadow: 0px 10px 20px rgba(78, 89, 51, 0.15);
+        }
+
+        /* Glass Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(199, 199, 187, 0.15);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links a:not(.btn) {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--on-surface);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:not(.btn):hover {
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 180px;
+            min-height: 90vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            margin-top: 4rem;
+            width: 100%;
+            height: 60vh;
+            border-radius: 12px 12px 0 12px; /* Raio de borda assimétrico para o Moodboard feeling */
+            overflow: hidden;
+            box-shadow: 0px 30px 60px rgba(26, 28, 27, 0.08); /* Ambient shadow */
+        }
+
+        .hero-image-wrapper img, .hero-image-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image-wrapper:hover img, .hero-image-wrapper:hover video {
+            transform: scale(1.02);
+        }
+
+        /* Portfolio */
+        .portfolio {
+            background-color: var(--surface-container-low);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .moodboard {
+            position: relative;
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .moodboard img, .moodboard video {
+            width: 100%;
+            object-fit: cover;
+            box-shadow: 0px 20px 40px rgba(26, 28, 27, 0.06);
+        }
+        
+        .moodboard .img-1 { grid-column: 1 / 3; height: 500px; border-radius: 12px 12px 0 0; }
+        .moodboard .img-2 { height: 300px; border-radius: 0 0 0 12px; }
+        .moodboard .img-3 { height: 300px; border-radius: 0 0 12px 0; margin-top: 0; }
+
+        /* Services / Cards */
+        .services-header {
+            margin-bottom: 4rem;
+            text-align: center;
+            max-width: 800px;
+            margin-inline: auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--surface-container-low);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            background-color: var(--surface-container-highest);
+            transform: translateY(-5px);
+        }
+
+        .card-price {
+            font-size: 2rem;
+            font-family: var(--font-display);
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: var(--on-surface);
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        footer h2 {
+            color: var(--on-primary);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 auto 2rem;
+            max-width: 50ch;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--on-primary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .footer-bottom {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* WhatsApp Floating Action Button */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #25D366; /* Cor da marca do WhatsApp */
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .whatsapp-fab svg {
+            width: 35px;
+            height: 35px;
+            fill: currentColor;
+        }
+
+        .whatsapp-fab:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Ocultar navegação no mobile para ser ultra-minimalista agora */
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 120px;
+            }
+
+            .moodboard .img-1 { height: 300px; }
+            .moodboard .img-2, .moodboard .img-3 { height: 200px; }
+
+            .section { padding: 60px 0; }
+            
+            /* Correção crítica: manter padding lateral no mobile */
+            .container { padding: 0 1.5rem !important; }
+
+            /* Ajustes finos de botoes no mobile */
+            .btn { width: 100%; margin-bottom: 0.5rem; }
+
+            /* --- NOVO MENU MOBILE --- */
+            #mobile-menu-btn { display: block !important; }
+            .nav-container { justify-content: space-between !important; }
+            .logo img { height: 60px !important; } /* Diminui logo no mobile */
+            
+            .nav-links { 
+                position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+                background: rgba(249, 249, 247, 0.98);
+                backdrop-filter: blur(10px);
+                display: flex !important;
+                flex-direction: column; align-items: center; justify-content: center;
+                gap: 2rem;
+                transform: translateY(-100%);
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 999;
+                opacity: 0;
+                pointer-events: none;
+            }
+            .nav-links.active { 
+                transform: translateY(0); 
+                opacity: 1;
+                pointer-events: all;
+            }
+            .nav-links a:not(.btn) { margin-left: 0 !important; font-size: 1.5rem; }
+            .nav-links a.btn { margin-left: 0 !important; width: 80%; padding: 1.2rem; }
+
+            /* --- HERO NO MOBILE --- */
+            .hero-image-wrapper { display: block; border-radius: 12px; height: 350px; overflow: hidden; margin-top: 2.5rem; }
+            .hero {
+                display: block;
+                padding-top: 0;
+                padding-bottom: 60px;
+                min-height: auto;
+            }
+            .hero-content {
+                text-align: center;
+                margin-top: 140px;
+            }
+
+            #sobre {
+                flex-direction: column-reverse !important;
+                gap: 2.5rem !important;
+                text-align: center;
+                margin-top: 4rem !important;
+            }
+
+            #sobre .label { margin: 0 auto 1rem; }
+
+            .carousel-prev { 
+                left: 10px !important;
+                top: auto !important;
+                bottom: 180px !important;
+                transform: translateY(50%) !important;
+            }
+            .carousel-next { 
+                right: 10px !important;
+                top: auto !important;
+                bottom: 180px !important;
+                transform: translateY(50%) !important;
+            }
+
+            #servicos {
+                margin-top: 4rem !important;
+            }
+
+            .whatsapp-fab {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        /* --- Showcase Classes (Novos Projetos) --- */
+        .collage {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .collage .img-main {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.4s ease;
+        }
+
+        .collage .img-main:hover {
+            transform: scale(1.02);
+            z-index: 2;
+            position: relative;
+        }
+
+        .collage-sub {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .collage-sub img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+            transition: transform 0.4s ease;
+        }
+
+        .collage-sub img:hover {
+            transform: scale(1.04);
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Before/After Layout */
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .ba-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .ba-item img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .ba-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .ba-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .ba-item img, .collage .img-main {
+                height: 220px;
+            }
+            .collage-sub img {
+                height: 120px;
+            }
+        }
+        
+        .showcase-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4rem;
+            margin-top: 6rem;
+        }
+
+        .showcase-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .showcase-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .showcase-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease;
+        }
+
+        .showcase-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .showcase-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .showcase-title {
+            color: var(--primary);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-family: var(--font-display);
+        }
+        
+        @media (max-width: 768px) {
+            .showcase-row, .showcase-row:nth-child(even) {
+                flex-direction: column;
+                gap: 2.5rem;
+                margin-top: 4rem;
+            }
+
+            .carousel-slide {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                padding: 2rem 1.5rem !important;
+            }
+            
+            .portfolio-text h2 {
+                font-size: 2rem !important;
+            }
+            
+            .carousel-dots {
+                margin-left: 0 !important;
+                justify-content: center !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho / Navegação 'Glass' -->
+    <header>
+        <div class="container nav-container" style="display: flex; justify-content: space-between; align-items: center;">
+            <!-- Logo da Keler Tiussi -->
+            <a href="#" class="logo" style="display: flex; align-items: center; z-index: 1001; position: relative;">
+                <img src="assets/Geral/logo.jpg" alt="Keler Tiussi Interiores" style="height: 80px; width: auto; object-fit: contain; mix-blend-mode: multiply; transition: var(--transition);">
+            </a>
+            
+            <!-- Botão Menu Hamburguer (Apenas Mobile) -->
+            <button id="mobile-menu-btn" style="display: none; background: none; border: none; cursor: pointer; z-index: 1001; position: relative; color: var(--primary);" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="#portfolio" onclick="document.getElementById('mobile-menu-btn').click();">Portfolio</a>
+                <a href="#servicos" onclick="document.getElementById('mobile-menu-btn').click();">Serviços</a>
+                <a href="#contato" class="btn btn-primary" style="padding: 0.5rem 1.5rem; margin-left: 2rem;" onclick="document.getElementById('mobile-menu-btn').click();">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção Principal (Hero) -->
+    <section class="hero container">
+        <div class="hero-content">
+            <h1>Design que transforma.<br>Planejamento que economiza.</h1>
+            <p>Projetos de interiores online personalizados para quem busca sofisticação e funcionalidade sem sair de casa.</p>
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="#portfolio" class="btn btn-primary" style="flex: 1; min-width: 200px;">Portfolio Curado</a>
+                <a href="#servicos" class="btn btn-secondary" style="flex: 1; min-width: 200px;">Nossos Serviços</a>
+            </div>
+        </div>
+        
+        <div class="hero-image-wrapper">
+            <!-- Vídeo selecionado (Moodboard 2) rodando em loop (Sem som) -->
+            <video src="assets/Geral/moodboard-2.mp4" autoplay loop muted playsinline class="hero-video"></video>
+        </div>
+    </section>
+
+    <!-- Seção: Sobre a Keler -->
+    <section id="sobre" class="section container" style="display: flex; align-items: center; gap: 4rem; flex-wrap: wrap;">
+        <!-- Foto com truque de CSS para mesclar o fundo na cor da página -->
+        <div style="flex: 1; min-width: 300px; text-align: center;">
+            <img src="assets/Geral/perfil-keler.jpg" alt="Keler Tiussi - Designer de Interiores" style="max-width: 100%; border-radius: 12px; mix-blend-mode: multiply; filter: contrast(1.1);">
+        </div>
+        <div style="flex: 1; min-width: 300px; max-width: 600px; margin: 0 auto;">
+            <span class="label">Sobre a Designer</span>
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Keler Tiussi</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-color);">Especialista em Interior Design. Em 20 anos, já realizou mais de 5 mil projetos exclusivos e autorais.</p>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-color); margin-top: 1rem;">O objetivo principal do seu trabalho é transformar a sua casa em um verdadeiro refúgio, com planejamento que economiza o seu dinheiro e design focado no seu bem-estar.</p>
+        </div>
+    </section>
+
+    <!-- Nova Seção: Nossa Essência (Informações Extraídas do Portfólio) -->
+    <section id="essencia" class="section" style="background-color: var(--primary); color: var(--on-primary); margin-top: 4rem;">
+        <div class="container text-center">
+            <span class="label" style="color: var(--primary-fixed);">A Essência do Nosso Design</span>
+            <h2 style="color: var(--on-primary); margin-top: 1rem;">Muito mais que Estética,<br>Qualidade de Vida.</h2>
+            <p style="margin: 0 auto 3rem auto; color: rgba(255, 255, 255, 0.9);">Cada projeto no escritório Keler Tiussi é desenvolvido sob três pilares fundamentais, garantindo que o seu investimento traga retorno em conforto, funcionalidade e durabilidade para a sua família.</p>
+            
+            <div class="cards-grid" style="text-align: left;">
+                <div class="card" style="background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <h3 style="color: var(--on-primary);">Identidade</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">A sua casa precisa contar a sua história. Traduzimos sua personalidade em espaços únicos, cheios de alma e sem nos prender a modismos passageiros.</p>
+                </div>
+                <div class="card" style="background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <h3 style="color: var(--on-primary);">Funcionalidade</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">O design deve facilitar o dia a dia. Pensamos na circulação inteligente, aproveitamento de espaço e facilidade de manutenção em cada escolha de material.</p>
+                </div>
+                <div class="card" style="background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <h3 style="color: var(--on-primary);">Planejamento</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Evitamos surpresas na sua obra. Com mais de 20 anos de experiência, nossos projetos detalhados otimizam os recursos e o tempo de execução.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Portfolio Curado em Carrossel -->
+    <section id="portfolio" class="section portfolio" style="padding: 80px 0; overflow: hidden; background: transparent;">
+        <div class="container" style="position: relative;">
+            
+            <div class="text-center" style="margin-bottom: 4rem;">
+                <span class="label">Inspirações Recentes</span>
+                <h2>Projetos em Destaque</h2>
+                <p style="margin: 0 auto; max-width: 700px;">Explore visuais que unem técnica impecável à beleza orgânica. Deslize para ver os destalhes da transformação e sinta-se em casa.</p>
+            </div>
+
+            <!-- Moldura de fundo estilo Referência -->
+            <div style="position: absolute; top: 200px; left: -15px; right: 45px; bottom: -15px; border: 1px solid var(--outline-variant); z-index: 0; pointer-events: none;"></div>
+
+            <!-- Setas do Carrossel (Flutuantes externas) -->
+            <button class="carousel-arrow carousel-prev" style="position: absolute; top: 55%; left: -25px; transform: translateY(-50%); z-index: 10; background: white; color: var(--primary); border: 1px solid #e1e3de; width: 50px; height: 50px; cursor: pointer; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" aria-label="Anterior" onmouseover="this.style.background='var(--primary)'; this.style.color='white'" onmouseout="this.style.background='white'; this.style.color='var(--primary)'">
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="carousel-arrow carousel-next" style="position: absolute; top: 55%; right: -25px; transform: translateY(-50%); z-index: 10; background: white; color: var(--primary); border: 1px solid #e1e3de; width: 50px; height: 50px; cursor: pointer; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" aria-label="Próximo" onmouseover="this.style.background='var(--primary)'; this.style.color='white'" onmouseout="this.style.background='white'; this.style.color='var(--primary)'">
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+
+            <div class="carousel-container" style="position: relative; z-index: 1; overflow: hidden; background-color: var(--surface-container-low); border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+
+                <div class="carousel-track" id="portfolio-track" style="display: flex; width: 100%; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);">
+                    
+                    <!-- Slide 1: Projeto B (Ambiente Inspirador) -->
+                    <div class="carousel-slide" style="flex: 0 0 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; box-sizing: border-box; padding: 4rem 3rem;">
+                        <div class="portfolio-text">
+                            <span class="label" style="display: inline-block; margin-bottom: 0.5rem;">Antes e Depois</span>
+                            <h2 style="color: var(--primary); font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 1.5rem;">Ambiente Inspirador</h2>
+                            <span class="label" style="font-size: 0.75rem; color: #677545;">Colatina, Brasil | 2025</span>
+                            <p style="color: var(--on-surface); margin-top: 1rem;">Descubra um ambiente inspirador e produtivo, onde o espaço é otimizado para reunir toda a família.</p>
+                            <a href="#contato" class="btn btn-primary" style="margin-top: 2rem;">Solicitar Orçamento</a>
+                        </div>
+                        <div class="portfolio-image collage">
+                            <div class="before-after-grid">
+                                <div class="ba-item">
+                                    <span class="ba-label">Antes</span>
+                                    <img src="assets/Projeto 04 -/projeto4-img6-antes.jpg" alt="Antes da Reforma" loading="lazy">
+                                </div>
+                                <div class="ba-item">
+                                    <span class="ba-label">Depois</span>
+                                    <img src="assets/Projeto 04 -/projeto4-img13.png" alt="Depois da Reforma" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="collage-sub">
+                                <img src="assets/Projeto 04 -/projeto4-img8.png" alt="Detalhe 1" loading="lazy">
+                                <img src="assets/Projeto 04 -/projeto4-img14.png" alt="Detalhe 2" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Projeto A (Apartamento Panorâmico) -->
+                    <div class="carousel-slide" style="flex: 0 0 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; box-sizing: border-box; padding: 4rem 3rem;">
+                        <div class="portfolio-text">
+                            <h2 style="color: var(--primary); font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 1.5rem;">Apartamento Panorâmico</h2>
+                            <span class="label" style="font-size: 0.75rem; color: #677545;">Colatina, Brasil | 2024</span>
+                            <p style="color: var(--on-surface); margin-top: 1rem;">Concebido a partir da integração entre o interior e o exterior, este projeto valoriza a luz natural, as texturas orgânicas e a fluidez dos espaços. Cada elemento foi escolhido para expressar tranquilidade e sofisticação discreta, resultando em uma atmosfera acolhedora e atemporal.</p>
+                            <a href="#contato" class="btn btn-primary" style="margin-top: 2rem;">Solicitar Orçamento</a>
+                        </div>
+                        <div class="portfolio-image collage">
+                            <img class="img-main" src="assets/Projeto 1 - Cozinha/projeto1-img5.jpeg" alt="Apartamento Panorâmico Principal" loading="lazy">
+                            <div class="collage-sub">
+                                <img src="assets/Projeto 1 - Cozinha/projeto1-img3.png" alt="Detalhe 1" loading="lazy">
+                                <img src="assets/Projeto 1 - Cozinha/projeto1-img7.jpeg" alt="Detalhe 2" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Espaços Sociais (Original) -->
+                    <div class="carousel-slide" style="flex: 0 0 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; box-sizing: border-box; padding: 4rem 3rem;">
+                        <div class="portfolio-text">
+                            <h2 style="color: var(--primary); font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 1.5rem;">Espaços Sociais</h2>
+                            <p style="color: var(--on-surface);">A derrubada das barreiras visuais deu lugar a um living perfeito onde as áreas de estar dialogam. Destaque para os acabamentos e a iluminação que trazem um forte senso de pertencimento e aconchego imediato.</p>
+                            <a href="#contato" class="btn btn-primary" style="margin-top: 2rem;">Solicitar Orçamento</a>
+                        </div>
+                        <div class="portfolio-image collage">
+                            <img class="img-main" src="assets/Projeto 2 -/projeto2-img2.png" alt="Espaços Sociais 1" loading="lazy">
+                            <div class="collage-sub">
+                                <img src="assets/Projeto 2 -/projeto2-img3.png" alt="Espaços Sociais 2" loading="lazy">
+                                <img src="assets/Projeto 2 -/projeto2-img4.png" alt="Espaços Sociais 3" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Refúgio Íntimo (Original) -->
+                    <div class="carousel-slide" style="flex: 0 0 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; box-sizing: border-box; padding: 4rem 3rem;">
+                        <div class="portfolio-text">
+                            <h2 style="color: var(--primary); font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 1.5rem;">Refúgio Íntimo</h2>
+                            <p style="color: var(--on-surface);">O desenvolvimento desse ambiente priorizou a tranquilidade visual e o ritmo do sono. A marcenaria otimizada, combinada com uma iluminação projetada para gerar relaxamento, transforma o quarto em um refúgio luxuoso e calmo.</p>
+                            <a href="#contato" class="btn btn-primary" style="margin-top: 2rem;">Solicitar Orçamento</a>
+                        </div>
+                        <div class="portfolio-image collage">
+                            <img class="img-main" src="assets/Projeto 03 -/projeto3-img1.png" alt="Refúgio Íntimo 1" loading="lazy">
+                            <div class="collage-sub">
+                                <img src="assets/Projeto 03 -/projeto3-img2.png" alt="Refúgio Íntimo 2" loading="lazy">
+                                <img src="assets/Projeto 03 -/projeto3-img3.png" alt="Refúgio Íntimo 3" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5: Projeto D (Clínica Esplanada) - Antes e Depois -->
+                    <div class="carousel-slide" style="flex: 0 0 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; box-sizing: border-box; padding: 4rem 3rem;">
+                        <div class="portfolio-text">
+                            <span class="label" style="display: inline-block; margin-bottom: 0.5rem;">Antes e Depois</span>
+                            <h2 style="color: var(--primary); font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 1.5rem;">Clínica Esplanada</h2>
+                            <span class="label" style="font-size: 0.75rem; color: #677545;">Colatina, Brasil | 2023/2025</span>
+                            <p style="color: var(--on-surface); margin-top: 1rem;">Um design moderno e sofisticado que impulsiona o sucesso empresarial, criando um ambiente corporativo excepcional.</p>
+                            <a href="#contato" class="btn btn-primary" style="margin-top: 2rem;">Solicitar Orçamento</a>
+                        </div>
+                        <div class="portfolio-image collage">
+                            <div class="before-after-grid">
+                                <div class="ba-item">
+                                    <span class="ba-label">Antes</span>
+                                    <img src="assets/Projeto D/img1-antes.jpeg" alt="Antes da Reforma" loading="lazy">
+                                </div>
+                                <div class="ba-item">
+                                    <span class="ba-label">Depois</span>
+                                    <img src="assets/Projeto D/img2-depois.jpeg" alt="Depois da Reforma" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="collage-sub">
+                                <img src="assets/Projeto D/img3.jpeg" alt="Detalhe 1" loading="lazy">
+                                <img src="assets/Projeto D/img4.jpeg" alt="Detalhe 2" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 6: Projeto C (Casa no Campo) -->
+                    <div class="carousel-slide" style="flex: 0 0 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; box-sizing: border-box; padding: 4rem 3rem;">
+                        <div class="portfolio-text">
+                            <h2 style="color: var(--primary); font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 1.5rem;">Uma Casa no Campo</h2>
+                            <p style="color: var(--on-surface);">Encante-se com um espaço acolhedor e funcional, especialmente projetado para atender às necessidades dos moradores. Uma casa no campo pensada para conforto e recepção atemporal.</p>
+                            <a href="#contato" class="btn btn-primary" style="margin-top: 2rem;">Solicitar Orçamento</a>
+                        </div>
+                        <div class="portfolio-image collage">
+                            <img class="img-main" src="assets/Projeto C/img6.jpeg" alt="Casa no Campo Principal" loading="lazy">
+                            <div class="collage-sub">
+                                <img src="assets/Projeto C/img2.jpeg" alt="Detalhe 1" loading="lazy">
+                                <img src="assets/Projeto C/img4.jpeg" alt="Detalhe 2" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 7: Projeto E -->
+                    <div class="carousel-slide" style="flex: 0 0 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; box-sizing: border-box; padding: 4rem 3rem;">
+                        <div class="portfolio-text">
+                            <h2 style="color: var(--primary); font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 1.5rem;">Home Theater Botânico</h2>
+                            <p style="color: var(--on-surface);">Uma abordagem sofisticada que combina elegância e funcionalidade. Ambientes desenhados para inspirar e proporcionar máximo conforto em cada detalhe.</p>
+                            <a href="#contato" class="btn btn-primary" style="margin-top: 2rem;">Solicitar Orçamento</a>
+                        </div>
+                        <div class="portfolio-image collage">
+                            <video class="img-main" src="assets/Projeto E/vid1.mp4" autoplay loop muted playsinline></video>
+                            <div class="collage-sub">
+                                <img src="assets/Projeto E/img1.jpeg" alt="Detalhe 1" loading="lazy">
+                                <img src="assets/Projeto E/img2.jpeg" alt="Detalhe 2" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 8: Projeto F -->
+                    <div class="carousel-slide" style="flex: 0 0 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; box-sizing: border-box; padding: 4rem 3rem;">
+                        <div class="portfolio-text">
+                            <h2 style="color: var(--primary); font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 1.5rem;">Living Integrado</h2>
+                            <p style="color: var(--on-surface);">Design de interiores contemporâneo focado na fluidez dos espaços. Uma união perfeita entre minimalismo acolhedor e soluções práticas para o dia a dia.</p>
+                            <a href="#contato" class="btn btn-primary" style="margin-top: 2rem;">Solicitar Orçamento</a>
+                        </div>
+                        <div class="portfolio-image collage">
+                            <img class="img-main" src="assets/Projeto F/img1.jpeg" alt="Projeto F Principal" loading="lazy">
+                            <div class="collage-sub" style="grid-template-columns: 1fr;">
+                                <img src="assets/Projeto F/img2.jpeg" alt="Detalhe 1" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Controles do Carrossel (Dots) -->
+            <div class="carousel-dots" style="display: flex; justify-content: flex-start; gap: 8px; margin-top: 2.5rem; margin-left: 3rem;">
+                <button class="dot active" style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--primary); border: none; cursor: pointer; transition: all 0.3s;"></button>
+                <button class="dot" style="width: 10px; height: 10px; border-radius: 50%; background-color: #c7c7bb; border: none; cursor: pointer; transition: all 0.3s;"></button>
+                <button class="dot" style="width: 10px; height: 10px; border-radius: 50%; background-color: #c7c7bb; border: none; cursor: pointer; transition: all 0.3s;"></button>
+                <button class="dot" style="width: 10px; height: 10px; border-radius: 50%; background-color: #c7c7bb; border: none; cursor: pointer; transition: all 0.3s;"></button>
+                <button class="dot" style="width: 10px; height: 10px; border-radius: 50%; background-color: #c7c7bb; border: none; cursor: pointer; transition: all 0.3s;"></button>
+                <button class="dot" style="width: 10px; height: 10px; border-radius: 50%; background-color: #c7c7bb; border: none; cursor: pointer; transition: all 0.3s;"></button>
+                <button class="dot" style="width: 10px; height: 10px; border-radius: 50%; background-color: #c7c7bb; border: none; cursor: pointer; transition: all 0.3s;"></button>
+                <button class="dot" style="width: 10px; height: 10px; border-radius: 50%; background-color: #c7c7bb; border: none; cursor: pointer; transition: all 0.3s;"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Meu Processo (Fotos da Especialista) -->
+    <section class="section container">
+        <div class="text-center" style="margin-bottom: 4rem;">
+            <span class="label">COMO FUNCIONA</span>
+            <h2>Meu Processo de Trabalho</h2>
+            <p style="margin: 0 auto; max-width: 700px;">Do primeiro contato à entrega final, elaboramos uma jornada clara, direta e incrivelmente personalizada rumo ao seu novo ambiente.</p>
+        </div>
+
+        <!-- Passo 1 (Foto Keler) -->
+        <div class="showcase-row">
+            <div class="showcase-image">
+                <img src="assets/Portifolio/portifolio-img1.jpg" alt="Briefing e Entendimento do Cliente" loading="lazy">
+            </div>
+            <div class="showcase-content">
+                <span class="label">ETAPA 1</span>
+                <h3 class="showcase-title">Aprofundamento e Briefing</h3>
+                <p>Nossa jornada começa entendendo a fundo quem você é. Em nossas sessões, captamos a sua essência, a rotina da família e os desejos que habitam o seu imaginário. Analisamos todas as possibilidades técnicas e do espaço para não apenas alinhar estética, mas garantindo extrema funcionalidade e viabilidade no investimento.</p>
+                <a href="#contato" class="btn btn-secondary" style="margin-top: 1.5rem;">Quero iniciar uma conversa</a>
+            </div>
+        </div>
+
+        <!-- Passo 2 (Foto Reunião Keler) -->
+        <div class="showcase-row" style="margin-top: 6rem;">
+            <div class="showcase-image">
+                <img src="assets/Portifolio/portifolio-img2.jpg" alt="Apresentação do Projeto Executivo" loading="lazy">
+            </div>
+            <div class="showcase-content">
+                <span class="label">ETAPA 2</span>
+                <h3 class="showcase-title">Projeto Executivo e Entrega</h3>
+                <p>Com o planejamento em mãos, nossos especialistas desenham um interior milimetricamente projetado. Toda a marcenaria, fluxo de circulação e texturas são validadas em uma apresentação técnica e clara (como se fosse um manual de passos para sua obra). O design sai do papel exatamente como foi sonhado, eliminando dores de cabeça estruturais.</p>
+                <a href="#contato" class="btn btn-primary" style="margin-top: 1.5rem;">Adquirir um Projeto</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Serviços e Valores -->
+    <section id="servicos" class="section container" style="padding-top: 6rem;">
+        <div class="services-header">
+            <h2>Investimento no seu bem-estar</h2>
+            <p>Soluções digitais flexíveis que cabem no seu planejamento, sem abrir mão da qualidade técnica e artística.</p>
+        </div>
+
+        <div class="cards-grid">
+            <!-- Consultoria -->
+            <div class="card">
+                <span class="label">Visual & Conceito</span>
+                <h3 class="card-price" style="margin-top: 1rem;">Projeto Simples</h3>
+                <p>O ponto de partida ideal para transformar sua ideia em realidade, definindo a identidade visual do seu espaço.</p>
+                <div style="font-size: 2rem; font-family: var(--font-display); color: var(--primary); margin-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1.5rem;">R$ 400,00</div>
+                <ul class="feature-list" style="margin-top: 1.5rem; margin-bottom: 2rem; flex-grow: 1;">
+                    <li>Design de acordo com seu estilo</li>
+                    <li>Imagens realistas</li>
+                    <li>01 pedido de revisão</li>
+                    <li>01 reunião online</li>
+                    <li>Vídeo do ambiente</li>
+                    <li><strong style="opacity: 0.7;">Não tem projeto executivo</strong></li>
+                </ul>
+                <a href="#contato" class="btn btn-secondary" style="width: 100%; margin-top: auto;">Solicitar Orçamento</a>
+            </div>
+
+            <!-- Projeto Completo -->
+            <div class="card">
+                <span class="label">Execução & Detalhamento</span>
+                <h3 class="card-price" style="margin-top: 1rem;">Projeto Completo</h3>
+                <p>A solução definitiva para uma execução impecável, com todas as diretrizes técnicas necessárias.</p>
+                <div style="font-size: 2rem; font-family: var(--font-display); color: var(--primary); margin-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1.5rem;">R$ 600,00</div>
+                <ul class="feature-list" style="margin-top: 1.5rem; margin-bottom: 2rem; flex-grow: 1;">
+                    <li>Design de acordo com seu estilo</li>
+                    <li>Imagens realistas</li>
+                    <li>02 pedidos de revisão</li>
+                    <li>01 reunião online</li>
+                    <li>Vídeo do ambiente</li>
+                    <li>Projeto executivo do ambiente escolhido</li>
+                    <li style="font-size: 0.85rem; line-height: 1.4; opacity: 0.8; padding-left: 0; margin-top: -0.5rem;">(Revestimentos, marcenaria, gesso, iluminação, mobiliário, pedras e pintura)</li>
+                </ul>
+                <a href="#contato" class="btn btn-primary" style="width: 100%; margin-top: auto;">Solicitar Orçamento</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer id="contato">
+        <div class="container">
+            <h2>Transformando espaços físicos em refúgios digitais.</h2>
+            <p>Com excelência técnica e sensibilidade estética. Atendimento em todo o Brasil.</p>
+            
+            <div class="footer-links" style="display: flex; gap: 2rem; justify-content: center; margin-bottom: 2rem; margin-top: 2rem;">
+                <a href="https://www.instagram.com/kelertiussidesign/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: inherit; transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    Instagram
+                </a>
+                <a href="https://wa.me/5527998712181" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: inherit; transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" height="20" fill="currentColor">
+                        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+            
+            <div class="footer-bottom" style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin-top: 4rem; padding-bottom: 2rem;">
+                <span style="font-size: 0.9rem;">&copy; 2026 Keler Tiussi Interiores. Todos os direitos reservados.</span>
+                <span style="font-size: 0.75rem; color: rgba(255,255,255,0.6); font-family: var(--font-body); letter-spacing: 1px; text-transform: uppercase;">
+                    Desenvolvido por <a href="https://www.instagram.com/kaua4you_ads/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 500; transition: opacity 0.3s;" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1">KAUÃ <span style="font-weight: 400; opacity: 0.7; color: rgba(255,255,255,0.4);">(@KAUA4YOU_ADS)</span></a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante de WhatsApp (Foco em Conversão no Mobile) -->
+    <!-- Coloque o número correto após o 'wa.me/' -->
+    <a href="https://wa.me/5527998712181" class="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco no WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+        </svg>
+    </a>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; cursor: zoom-out; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+        <span style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: 300; line-height: 1; cursor: pointer; transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='white'">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoom" style="max-width: 90%; max-height: 90vh; border-radius: 4px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); object-fit: contain;">
+    </div>
+
+    <!-- Scripts simples -->
+    <script>
+        // Logica para o menu hamburguer
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                
+                // Troca o icone de hamburguer para X
+                if(navLinks.classList.contains('active')) {
+                    menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+                } else {
+                    menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+                }
+            });
+        }
+
+        // Lógica do Carrossel Portfolio
+        const track = document.getElementById('portfolio-track');
+        const dots = document.querySelectorAll('.carousel-dots .dot');
+        const btnPrev = document.querySelector('.carousel-prev');
+        const btnNext = document.querySelector('.carousel-next');
+        let currentCarouselIndex = 0;
+
+        function updateCarousel(index) {
+            currentCarouselIndex = index;
+            // Update track position
+            track.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update dots visual
+            dots.forEach((d, i) => {
+                if(i === index) {
+                    d.classList.add('active');
+                    d.style.backgroundColor = 'var(--primary)';
+                    d.style.transform = 'scale(1.2)';
+                } else {
+                    d.classList.remove('active');
+                    d.style.backgroundColor = '#c7c7bb';
+                    d.style.transform = 'scale(1)';
+                }
+            });
+        }
+
+        if (track && dots.length > 0) {
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => updateCarousel(index));
+            });
+
+            if (btnPrev) {
+                btnPrev.addEventListener('click', () => {
+                    let newIndex = currentCarouselIndex > 0 ? currentCarouselIndex - 1 : dots.length - 1;
+                    updateCarousel(newIndex);
+                });
+            }
+            if (btnNext) {
+                btnNext.addEventListener('click', () => {
+                    let newIndex = currentCarouselIndex < dots.length - 1 ? currentCarouselIndex + 1 : 0;
+                    updateCarousel(newIndex);
+                });
+            }
+        }
+
+        // Smooth scrolling nativo garantido no CSS e ancorado aqui por JS se for necessário compatibilidade
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Lógica do Lightbox para abrir imagens
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const zoomableImages = document.querySelectorAll('.portfolio-image img, .showcase-image img');
+
+        zoomableImages.forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; 
+            });
+        });
+
+        if(lightbox) {
+            lightbox.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+        }
+    </script>
+</body>
+</html>
