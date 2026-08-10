@@ -39,7 +39,7 @@ Como o projeto é construído apenas com HTML, CSS e JS nativos, não é necess�
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/kauamath/kelertiussi.git
+   git clone https://github.com/kauamath/Keler-Tiussi.git
    ```
 2. Abra o arquivo `index.html` em qualquer navegador moderno.
 3. *Opcional*: Utilize a extensão "Live Server" no VSCode para visualização em tempo real das alterações.
