@@ -1,57 +1,80 @@
-# Keler Tiussi - Designer de Interiores
+# 🏛️ Keler Tiussi — Designer de Interiores
 
-![Mockup Keler Tiussi](assets/Geral/logo.jpg)
+<p align="center">
+  <img src="assets/Geral/logo.jpg" alt="Keler Tiussi Interiores Logo" width="160" style="mix-blend-mode: multiply;">
+</p>
 
-Uma landing page elegante e de alta conversão desenvolvida para Keler Tiussi, especialista em Design de Interiores. O projeto combina **Editorial Organicism** com foco na experiência do usuário, resultando em uma interface imersiva, responsiva e otimizada para captação de clientes via WhatsApp.
+<p align="center">
+  <b>Design que transforma. Planejamento que economiza.</b><br>
+  Plataforma oficial da designer Keler Tiussi — Especialista em Arquitetura de Interiores e Projetos de Luxo com mais de 20 anos de atuação e 5.000+ projetos realizados.
+</p>
 
-## 🌟 Funcionalidades Principais
-
-- **Design Premium & Minimalista**: Estética "Editorial Organicism" com espaços em branco, paleta de cores terrosas e tipografia sofisticada.
-- **Portfólio Interativo (Carousel)**: Um carrossel fluido e responsivo para visualização das imagens de "Antes e Depois" dos projetos de arquitetura e interiores.
-- **Lazy Loading Inteligente**: Carregamento assíncrono de vídeos pesados via `IntersectionObserver` apenas quando o usuário chega na seção do portfólio, economizando banda e melhorando o tempo de carregamento da página.
-- **Compartilhamento Direto**: Sistema de `Web Share API` integrado com fallback para cópia de link para a área de transferência. Cada projeto possui uma âncora específica (`?projeto=X`) para compartilhamento individualizado.
-- **Mobile-First & Responsividade**: Navegação otimizada para smartphones (com menu Hamburguer) e tablets, sem perder a qualidade no desktop.
-- **Micro-interações**: Efeito *glassmorphism* no cabeçalho sticky e animações suaves de entrada nos botões e seções.
-
-## 🛠️ Tecnologias Utilizadas
-
-- **HTML5 Semântico**: Estruturação otimizada para SEO.
-- **CSS3 (Vanilla)**: Estilização modular utilizando variáveis CSS (Design System) para fácil manutenção de cores e tipografia. Não requer pré-processadores.
-- **JavaScript (Vanilla)**: Lógica de front-end limpa para carrossel, modal lightbox, lazy loading e navegação, sem dependência de bibliotecas externas pesadas.
-
-## 📂 Estrutura de Arquivos
-
-O projeto adota uma arquitetura de arquivo único para facilitar o deploy em hospedagens estáticas, mantendo os assets locais rigorosamente organizados:
-
-```
-├── index.html                  # Arquivo principal contendo toda a estrutura, estilos e lógica
-├── assets/                     # Imagens, logotipos e vídeos do projeto
-│   ├── Geral/                  # Assets globais (Logo, perfil)
-│   ├── Portfólio/              # Assets da seção do portfólio
-│   ├── Projeto C/              # Imagens do respectivo projeto
-│   └── ...                     
-└── README.md                   # Documentação do projeto
-```
-
-## 🚀 Como Executar Localmente
-
-Como o projeto é construído apenas com HTML, CSS e JS nativos, não é necessário Node.js ou build steps.
-
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/kauamath/Keler-Tiussi.git
-   ```
-2. Abra o arquivo `index.html` em qualquer navegador moderno.
-3. *Opcional*: Utilize a extensão "Live Server" no VSCode para visualização em tempo real das alterações.
-
-## 🌐 Deploy
-
-Este projeto está pronto para ser hospedado gratuitamente em plataformas como:
-- **Netlify**
-- **Vercel**
-- **Coolify / Hostinger**
-
-Para publicar, basta apontar a raiz do projeto para o provedor de hospedagem de páginas estáticas.
+<p align="center">
+  <a href="https://kelertiussi.com.br" target="_blank">🌐 kelertiussi.com.br</a> •
+  <a href="#-sobre-o-projeto">Sobre</a> •
+  <a href="#-tecnologias-e-design">Tecnologias</a> •
+  <a href="#-funcionalidades-de-alta-performance">Funcionalidades</a> •
+  <a href="#-estrutura-de-arquivos">Arquitetura</a>
+</p>
 
 ---
-*Desenvolvido com padrão AntiGravity 🚀 - Foco em alta performance e design que converte.*
+
+## 🌟 Sobre o Projeto
+
+O site oficial da **Keler Tiussi** é uma aplicação web *Single Page* concebida sob a metodologia **Editorial Organicism**, combinando estética minimalista de alto luxo, navegação fluida e foco em conversão para atendimento VIP via WhatsApp.
+
+Desenvolvido para representar a marca no domínio oficial [kelertiussi.com.br](https://kelertiussi.com.br), o projeto transmite autoridade, elegância e segurança técnica para clientes que buscam projetos residenciais e comerciais personalizados.
+
+---
+
+## 📸 Prévia do Projeto
+
+<p align="center">
+  <img src="assets/Geral/perfil-keler.jpg" alt="Keler Tiussi" width="280" style="border-radius: 12px; margin: 5px;">
+  <img src="assets/Projeto E/img1.jpeg" alt="Home Theater Botânico" width="280" style="border-radius: 12px; margin: 5px;">
+</p>
+
+---
+
+## 🛠️ Tecnologias & Design System
+
+- **HTML5 Semântico & SEO:** Estrutura otimizada para buscadores (Google, Bing) e suporte a integração de anúncios (Meta Pixel).
+- **CSS3 Vanilla (Design Tokens):**
+  - Sistema de cores *Editorial Organicism* com paleta de verdes terrosos e naturais (`--primary: #4e5933`), fundos orgânicos (`#F9F9F7`) e tipografia refinada com Google Fonts (*Noto Serif* e *Manrope*).
+  - Efeitos translúcidos (*glassmorphism*) com `backdrop-filter: blur(24px)`.
+  - Transições suaves e responsividade completa via CSS Grid e Flexbox.
+- **JavaScript Pure (ES6+):**
+  - **Carrossel Interativo de Portfólio:** Slider dinâmico com navegação por setas, indicação visual e suporte a touch/drag.
+  - **Lazy Loading Inteligente via `IntersectionObserver`:** Carregamento sob demanda de vídeos e mídias pesadas apenas quando visíveis na tela, reduzindo consumo de dados e acelerando a abertura da página.
+  - **Web Share API Integrada:** Sistema de compartilhamento de projetos individuais via URL parametrizada (`?projeto=X`) com cópia automática para a área de transferência.
+
+---
+
+## ✨ Funcionalidades de Alta Performance
+
+- 📱 **Mobile-First & Menu Overlay:** Menu responsivo personalizado para smartphones e tablets.
+- 🎬 **Hero Imersivo com Vídeo Moodboard:** Apresentação da marca com vídeo institucional contínuo em loop nativo.
+- 📐 **Sessão "Nossa Essência":** Apresentação dos pilares do escritório (*Identidade*, *Funcionalidade* e *Planejamento*).
+- 🏷️ **Tabela Transparente de Serviços:** Seções explicativas e detalhamento das etapas dos projetos online e presenciais.
+- 💬 **Gatilho de Conversão Direta:** Botão flutuante WhatsApp (FAB) presente em todas as seções para agendamento imediato.
+
+---
+
+## 📁 Estrutura de Arquivos
+
+```text
+├── index.html                  # Aplicação Single Page Master (HTML + CSS + JS)
+├── README.md                   # Documentação institucional do repositório
+└── assets/                     # Acervo de mídias e portfólio
+    ├── Geral/                  # Logos, perfis e vídeos institucionais
+    ├── Portfólio/              # Mídias da galeria geral
+    ├── Projeto B/              # Fotos e vídeos do projeto "Ambiente Inspirador"
+    ├── Projeto E/              # Fotos e vídeos do projeto "Home Theater Botânico"
+    └── Projeto F/              # Fotos do projeto "Living Integrado"
+```
+
+---
+
+<p align="center">
+  Desenvolvido por <b>Kauã Medeiros</b> | <i>Powered by AntiGravity Web Methodology</i>.
+</p>
