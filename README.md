@@ -76,5 +76,5 @@ Desenvolvido para representar a marca no domínio oficial [kelertiussi.com.br](h
 ---
 
 <p align="center">
-  Desenvolvido por <b>Kauã Medeiros</b> | <i>Powered by AntiGravity Web Methodology</i>.
+  Desenvolvido por <b>Kauã Medeiros</b>
 </p>
